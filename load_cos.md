@@ -61,6 +61,9 @@ Here’s an example SQL statement that uses the Db2 LOAD utility to load COS dat
 CALL SYSPROC.ADMIN_CMD('LOAD FROM "S3::<cos-endpoint-url>::<cos-access-key-ID>::<cos-secret-access-key>:
 :<cos-bucket-name>::<path-to-data-file>" OF <filetype> <additional-load-options> INTO <table-name>)
 ```
+
+CALL SYSPROC.ADMIN_CMD ('Load FROM S3::s3.us-south.objectstorage.softlayer.net::c3e59ec43d9e407db47802b3f437809c::5ec4c015b748d7efe6272036dc15199522b44859ed198e4e::cloud-object-storage-skyline-cos-standard-vie::prdbackupwithincre/ACCESS_PROFILE.csv OF DEL INSERT INTO )
+
 {: codeblock}
 
 For more information about the Db2 LOAD utility, see: [LOAD command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0008305.html){: external}.
