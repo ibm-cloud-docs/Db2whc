@@ -62,7 +62,7 @@ CALL SYSPROC.ADMIN_CMD('LOAD FROM "S3::<cos-endpoint-url>::<cos-access-key-ID>::
 :<cos-bucket-name>::<path-to-data-file>" OF <filetype> <additional-load-options> INTO <table-name>)
 ```
 
-CALL SYSPROC.ADMIN_CMD ('Load FROM S3::s3.us-south.objectstorage.softlayer.net::c3e59ec4::5ec4c015b748d7efe6272036dc15e::blucketname::prdbackupwithincre/ACCESS_PROFILE.csv OF DEL INSERT INTO )
+CALL SYSPROC.ADMIN_CMD ('Load FROM S3::s3.us-south.objectstorage.softlayer.net::c3e59ec4::5ec4c015b748d7efe6272036dc15e::sample::prdbackupwithincre/ACCESS_PROFILE.csv OF DEL INSERT INTO....')
 
 {: codeblock}
 
