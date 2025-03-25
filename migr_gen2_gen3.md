@@ -47,7 +47,7 @@ You can choose an existing backup or create a new backup from the prior instance
 ## Step 3: Final Upgrade
 {: #migr_upgrade}
 
-This step completes the upgrade process. A full backup of the database from the prior system will be taken and restored onto the new Gen 3 system. Both the hostname from the previous system and the new hostname for the Gen 3 instance will remain active, ensuring that applications, including those inserting and querying data, are routed to the upgraded Gen 3 environment. However, any private connections will need to be explicitly updated to point to the new instance, as described in more detail in the FAQ section.
+This step completes the upgrade process. A full backup of the database from the prior system will be taken and restored onto the new Gen 3 system. Both the hostname from the previous system and the new hostname for the Gen 3 instance will remain active, ensuring that applications, including those inserting and querying data, are routed to the upgraded Gen 3 environment. However, any private connections will need to be explicitly updated to point to the new instance, as described in the FAQ section.
 The prior system will still exist but will no longer be accessible for connections, effectively rendering it offline. Billing for both systems will continue unless the old system is deleted. At this stage, billing for the new system will begin.
 
 ## Step 4: Delete Your Old System
