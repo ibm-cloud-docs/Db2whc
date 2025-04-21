@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2014, 2023
-lastupdated: "2023-12-11"
+  years: 2014, 2025
+lastupdated: "2025-04-18"
 
 keywords:
 
@@ -24,9 +24,11 @@ subcollection: Db2whc
 # Backup and restore
 {: #br}
 
-A snapshot backup of the database is taken daily. Management and configuration of daily snapshot backups are built into the web console. 
+A snapshot backup of the database is taken daily. Management and configuration of daily snapshot backups are built into the web console. While the backup is in progress, all writes in the system are queued, and all reads that do not depend on the queued writes continue to run.
 
-You can use the web console to restore from a snapshot backup if needed. While the restore is in progress, all writes in the system are queued, and all reads that don’t depend on the queued writes will continue. 
+You can use the web console to restore from a snapshot backup.
+
+A snapshot restore restores the entire database to the state it was in when the backup was created. To restore only one object or a subset of objects, use the [logical schema backup and restore](https://www.ibm.com/docs/en/db2w-as-a-service?topic=database-schema-level-table-level-backup-restore) functionality.
 
 <!--| Plan              | Backup frequency | Number of retained backups | Backup retention period   | Self service |
 |-------------------|------------------|----------------------------|---------------------------|--------------|
@@ -38,31 +40,50 @@ You can use the web console to restore from a snapshot backup if needed. While t
 ## IBM Cloud
 {: #ibm_cloud_br}
 
-The last 7 daily snapshots are retained by default. Snapshot backups are encrypted and stored in block storage local to the Db2 Warehouse on Cloud system. Snapshot backups are free of charge.
+### Current Generation
+By default, daily snapshots are retained for the last seven days. When deployed on IBM Cloud, you can use the web console to configure a longer retention period for snapshot backups. While almost unlimited snapshots can be retained, the number can also be lowered to save on cost. At least one backup must be retained to maintain compliance with various standards.
+
+Snapshot backups are encrypted and stored in IBM Cloud Could Object Storage (COS). COS keeps copies of each snapshot backup across three availability zones (AZs) in each region by default, so there are three copies of each snapshot backup in total.
+
+With the current generation of plans, you are charged for all backups. The backup process backs up data on both block and in [native cloud object storage](https://www.ibm.com/docs/en/db2w-as-a-service?topic=native-cloud-object-storage-support). The backups are comprised of snapshots of block storage, all data in Native COS, and various required metadata stored in IBM Cloud Object Storage.
+
+The recovery point objective (RPO) for snapshot backups is 24 hours. The recovery time objective (RTO) when restoring from a snapshot backup for the current generation is dependent upon the amount of data stored in object storage. The RTO is approximately 1.5 TB/hour.
+
+### Previous Generation
+By default, daily snapshots are retained up to the last seven days. Snapshot backups are encrypted and stored in block storage that is local to the Db2 Warehouse on Cloud system. Snapshot backups are free of charge.
+
+The recovery point objective (RPO) for snapshot backups is 24 hours. The recovery time objective (RTO) when restoring from a snapshot backup is approximately one hour.
 
 ## Amazon Web Services
 {: #aws_br}
 
-The last 7 daily snapshots are retained by default. When deployed on Amazon Web Services, you can use the web console to configure a longer retention period for snapshot backups if desired. 
+### Current Generation
+By default, daily snapshots are retained for the last seven days. When deployed on Amazon Web Services, you can use the web console to configure a longer retention period for snapshot backups. While almost unlimited snapshots can be retained, the number can also be lowered to save on cost. At least one backup must be retained to maintain compliance with various standards.
 
-Potentially unlimited snapshots can be retained. Snapshot backups are encrypted and stored in Amazon Web services S3. S3 keeps copies of each snapshot backup across 3 availability zones (AZs) in each region by default, so there are 3 copies of each snapshot backup in total. 
+Snapshot backups are encrypted and stored in AWS Simple Storage Service (S3). AWS S3 keeps copies of each snapshot backup across three availability zones (AZs) in each region by default, so there are three copies of each snapshot backup in total.
 
-With the previous generation of plans, the first 7 snapshot backups on Amazon Web Services are free of charge. You will be charged each month for the capacity required for any additional snapshot backups.
+With the current generation of plans, you are charged for all backups. The backup process backs up data on both block and in [native cloud object storage](https://www.ibm.com/docs/en/db2w-as-a-service?topic=native-cloud-object-storage-support). The backups are comprised of snapshots of block storage, all data in Native COS, and various required metadata stored in AWS S3 backup.
 
-With the current generation of plans, you are charged for all backups. The backup process backs up data on both block and object storage. The backup in this case includes snapshots of block storage and AWS S3 backup of object storage data.
+The recovery point objective (RPO) for snapshot backups is 24 hours. The recovery time objective (RTO) when restoring from a snapshot backup for the current generation is dependent upon the amount of data stored in object storage. The RTO is approximately 1.5 TB/hour.
+
+### Previous Generation
+With the previous generation of plans, the first seven snapshot backups on Amazon Web Services are free of charge. You are charged each month for the capacity required for any additional snapshot backups.
+
+The recovery point objective (RPO) for snapshot backups is 24 hours. The recovery time objective (RTO) when restoring from a snapshot backup is approximately one hour.
 
 | Cloud provider                            | Backup frequency | Number of retained backups              | Retention period         |
 |-------------------------------------------|------------------|-----------------------------------------|--------------------------|
-| IBM Cloud                                 | 1 / day          | Up to 7                                 | 7 days; FIFO* rollover   |
+| IBM Cloud (previous generation)                                | 1 / day          | Up to 7                                 | 7 days; FIFO* rollover   |
+| IBM Cloud (current generation)  | 1 / day          | 7 by default; can be increased or decreased by configuring retention period | 7 days default; can be increased or decreased; FIFO rollover 
 | Amazon Web Services (previous generation) | 1 / day          | Up to 7 by default; Can be increased    | 7 days; FIFO* rollover   |
 | Amazon Web Services (current generation)  | 1 / day          | 7 by default; can be increased or decreased by configuring retention period | 7 days default; can be increased or decreased; FIFO rollover 
-{: caption="Table 1. Snapshot backup frequency and retention period" caption-side="top"}
+{: caption="Snapshot backup frequency and retention period" caption-side="top"}
 
 *First in, first out
 
 ## Logical schema backup and restore
 
-This feature provides the ability to do full, cumulative incremental, or delta incremental backup of a Db2 schema followed by full restore of the schema or table(s) within the schema. Logical schema backup is a flexible and lightweight way to backup and restore table level data. For more information about this feature, see [Schema-level and table-level backup and restore](https://www.ibm.com/docs/en/db2/11.5?topic=recovery-schema-level-table-level-backup-restore).
+This feature provides the ability to do full, cumulative incremental, or delta incremental backup of a Db2 schema followed by full restore of the schema or table(s) within the schema. [Logical schema backup](https://www.ibm.com/docs/en/db2w-as-a-service?topic=database-schema-level-table-level-backup-restore) is a flexible and lightweight way to backup and restore table level data. 
 
 <!--## SMP and MPP plans
 {: #smp_mpp}
