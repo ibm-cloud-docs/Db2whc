@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2014, 2019
+  years: 2014, 2024
 lastupdated: "2024-03-04"
 
 keywords:
@@ -27,7 +27,7 @@ subcollection: Db2whc
 [IBM Lift CLI](https://www.ibm.com/products/lift){: external} is a free ground-to-cloud data migration tool that securely moves your data from on-premises systems to {{site.data.keyword.dashdblong}} plans hosted on IBM Cloud. IBM Lift CLI is available for the Flex One, Flex, and Flex Performance plans hosted on IBM Cloud.
 {: shortdesc}
 
-The Lift application migrates your data to the {{site.data.keyword.Bluemix_notm}} from the various data sources listed in Table 1. 
+The CLI Lift application migrates your data to the {{site.data.keyword.Bluemix_notm}} from the various data sources listed in Table 1. 
 
 | Target database on {{site.data.keyword.Bluemix_notm}} | Data source |
 |------------------------------|-------------|
