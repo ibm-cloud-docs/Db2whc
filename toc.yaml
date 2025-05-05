@@ -54,6 +54,7 @@ toc:
           - db_design.md 
           - advanced_admin.md
           - flex_scaling.md
+          - pauseandresume.md
           - br.md
           - dr.md
           - link:
