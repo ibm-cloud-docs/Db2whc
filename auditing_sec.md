@@ -143,9 +143,89 @@ Once the audit records have been successfully uploaded to the cloud object stora
 
 ## Enable auditing 
 
-To enable database auditing, open the web console, select Administration, and navigate to the Audit tab. Click on Enable Audit button. After configuration, complete set up by defining and activating at least one policy.
+In the updated auditing method, you will transition from maintaining audit tables to archiving audit logs in a Cloud Object Storage (COS) bucket. This change signifies a shift towards a more scalable and flexible approach to managing audit data.
 
-You may create a new remote storage alias or use an existing one. It is recommended that you configure a dedicated COS bucket for auditing. To ensure the audit logs are written to your COS bucket, leave Object Path blank. It is sufficient to only provide the COS bucket since the audit facility autogenerates the object name upon write.
+To configure and manage auditing, you can now access the Audit tab within the IBM Cloud console. This centralized location allows for the creation, modification, and deletion of defined and active audit policies. By utilizing the Audit tab, you can efficiently oversee their auditing configurations and p### olicies.
 
-For more information about auditing for {{site.data.keyword.dashdbshort_notm}}, see [Audit policy guidelines](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.security.doc/doc/audit_policy_guidelines.html)
+One of the key benefits of this new method is the ability to preview audit files directly within the chosen COS bucket. This feature enables you to monitor their archived logs, ensuring that the data is being stored and organized as intended.
 
+Additionally, you can continue to manage their audit policies using the SQL Editor, providing a familiar and powerful tool for fine-tuning and customizing their auditing configurations.
+
+The automatic upload of audit logs to the COS bucket occurs in two scenarios:
+* When the internal audit buffer reaches its maximum capacity.
+* Approximately every 15 minutes, if there are records to be uploaded.
+
+This new method ensures that audit logs are consistently and reliably stored in a scalable and easily accessible location, enhancing overall data management and compliance capabilities within the IBM Cloud environment.
+
+
+### Enabling Database Auditing to Cloud Object Storage (COS) Bucket
+1. **Create a Storage Alias**: Establish a storage alias for your COS bucket.
+    1. **Navigate to Object Storage Aliases tab**: Access "Object Storage Aliases" tab under "Storage Objects" within the IBM Cloud console
+    2. **Create Object Storage Alias**: Click “Create Object storage alias” to configure your COS bucket access information into a Db2 Storage Alias
+    3. **Enter alias details**: Object Storage Alias name, endpoint type, endpoint URL of your bucket, S3 key ID and access key.
+    4.  **Test connection to ensure details are valid**: Click “Test Connection” and click “Next”.
+    5.  **Select COS bucket**: From the dropdown menu, choose the the bucket and click “Next”.
+    6. **Review and Confirm**: Verify your settings and click “Connect” to finalize the configuration.
+2. **Navigate to the Audit Tab**: Access the Audit tab within the IBM Cloud console.
+3. **Initiate Audit**: Click "Enable Audit" to begin the process.
+4. **Select Audit Tables Option**: Decide whether to Keep or Remove your existing AUDIT tables. It's advisable to migrate your audit data to the COS bucket prior to enabling audit through the console.
+5. **Assign Storage Alias**: From the dropdown menu, choose the storage alias linked to your audit logs.
+6. **Review and Confirm**: Verify your settings and click "Enable" to finalize the configuration.
+
+### Configuring Audit Policies in IBM Cloud Database
+
+To configure audit policies in your IBM Cloud database, follow the steps below based on your use case:
+
+#### Policy Templates
+
+To facilitate testing and prototyping of the auditing feature in your IBM Cloud database, the following policy templates are available:
+
+**Audit a User Role**: This template is designed to monitor and log activities related to a specific user role. It captures events such as login attempts, data modifications, and privilege changes for the selected role.
+
+**Audit All Logins**: This template provides a broad overview of all login activities within the database. It records successful and failed login attempts, user identities, and timestamps, enabling comprehensive tracking of access patterns.
+
+**Audit Data Modification**: This template focuses on capturing changes made to the database's data. It logs events such as INSERT, UPDATE, and DELETE operations, along with the affected tables and records, offering insights into data manipulation activities.
+
+These test/prototype policy templates are intended to help you evaluate the auditing feature's capabilities and tailor your configurations to meet your organization's specific needs. Once you have validated the feature's performance and suitability, you can transition to creating custom policies for production environments.
+
+1. **Create Audit Policy**: Click "Create audit policy".
+2. **Select Template**: From the dropdown menu, choose "Template".
+3. **Enter Policy Name**: Input a name for your policy.
+4. **Choose Template**: Select a policy template tile, such as "Audit a user role", "Audit all logins", or "Audit data modification".
+5. **Activate Audit Policies**: Enable the defined policies by selecting the database entity (table, group, role, user, etc.) from the dropdown menu.
+6. **Review and Confirm**: Verify your settings and click "Save" to finalize the configuration.
+
+#### Custom-Defined Policies
+
+When defining custom audit policies in your IBM Cloud database, it's essential to consider your specific use cases to control the size of data downloaded into the Cloud Object Storage (COS) bucket. By tailoring your policies to focus on critical events and entities, you can effectively manage the volume of audit data and optimize storage costs.
+
+Here are some best practices for creating custom audit policies based on your use cases:
+
+1. **Identify Critical Events**: Determine the events that are most relevant to your organization's compliance and security requirements. For example, if data privacy is a concern, prioritize auditing events related to data access, modification, or deletion.
+
+2. **Select Relevant Entities**: Focus on the database entities (tables, users, groups, roles) that are most critical to your use cases. By narrowing the scope of audited entities, you can reduce the overall data volume and storage requirements.
+
+3. **Configure Error Handling**: Decide whether to return or ignore audit errors based on your organization's needs. Choosing AUDIT will log errors, while NORMAL will suppress them, allowing you to control the amount of data generated.
+
+4. **Set Appropriate Status**: For each audit category (BOTH, SUCCESS, FAILURE, NONE), select the status that best aligns with your use case. This helps ensure that you capture the necessary events without overwhelming your COS bucket with unnecessary data.
+
+5. **Regularly Review and Adjust**: Periodically assess the performance and effectiveness of your custom policies. Make adjustments as needed to maintain an optimal balance between data coverage and storage efficiency.
+
+By following these best practices, you can create custom audit policies that effectively address your use cases while controlling the size of data downloaded into the COS bucket. This approach ensures that your auditing configuration is both comprehensive and cost-effective.
+
+1. **Create Audit Policy**: Click "Create audit policy".
+2. **Select Custom**: From the dropdown menu, choose "Custom".
+3. **Define Policy Details**:
+    1. **Enter Policy Name**: Input a name for your policy.
+    2. **Choose Error Type**: Specify whether audit errors are to be returned or ignored (AUDIT or NORMAL, respectively).
+    3. **Choose Categories**: Click the switch for each category you want audited and select the corresponding Status (BOTH, SUCCESS, FAILURE, NONE). Click "Next".
+4. **Activate Audit Policies**:
+    1. **Enable Policy**: Click the switch to "Enable policy" and click "Select database entities".
+    2. **Select Database Entities**: Choose each database entity tab (Tables, Users, Groups, Roles) and click each checkbox of the desired entity name.
+5. **Review and Confirm**: Verify your settings and click "Save" to finalize the configuration.
+6. **Validate Policies**: Click the "Policies" tab and review the audit policy list.
+
+#### Configure Policy with SQL Editor
+Alternatively, you can use the SQL editor to define and activate policies. This method allows you to configure policies for any available database entity. For detailed guidance, refer to the [Audit policy guidelines](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.security.doc/doc/audit_policy_guidelines.html).
+
+By following these steps, you can effectively configure audit policies in your IBM Cloud database, ensuring comprehensive monitoring and compliance with your organization's requirements.
