@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2025
-lastupdated: "2025-01-18"
+lastupdated: "2025-05-16"
 
 keywords:
 
@@ -145,14 +145,14 @@ Once the audit records have been successfully uploaded to the cloud object stora
 
 In the updated auditing method, you will transition from maintaining audit tables to archiving audit logs in a Cloud Object Storage (COS) bucket. This change signifies a shift towards a more scalable and flexible approach to managing audit data.
 
-To configure and manage auditing, you can now access the Audit tab within the IBM Cloud console. This centralized location allows for the creation, modification, and deletion of defined and active audit policies. By utilizing the Audit tab, you can efficiently oversee their auditing configurations and p### olicies.
+To configure and manage auditing, you can now access the Audit tab within the IBM Cloud console. This centralized location allows for the creation, modification, and deletion of defined and active audit policies. Through the Audit tab, you can efficiently oversee your auditing configurations and policies.
 
-One of the key benefits of this new method is the ability to preview audit files directly within the chosen COS bucket. This feature enables you to monitor their archived logs, ensuring that the data is being stored and organized as intended.
+One of the key benefits of this new method is the ability to preview audit files directly within the chosen COS bucket. This feature enables you to monitor your archived logs, ensuring that the data is being stored and organized as intended.
 
-Additionally, you can continue to manage their audit policies using the SQL Editor, providing a familiar and powerful tool for fine-tuning and customizing their auditing configurations.
+Additionally, you can continue to manage your audit policies using the SQL Editor, providing a familiar and powerful tool for fine-tuning and customizing your auditing configurations.
 
 The automatic upload of audit logs to the COS bucket occurs in two scenarios:
-* When the internal audit buffer reaches its maximum capacity.
+* When the internal audit buffer reaches maximum capacity.
 * Approximately every 15 minutes, if there are records to be uploaded.
 
 This new method ensures that audit logs are consistently and reliably stored in a scalable and easily accessible location, enhancing overall data management and compliance capabilities within the IBM Cloud environment.
@@ -163,12 +163,13 @@ This new method ensures that audit logs are consistently and reliably stored in 
     1. **Navigate to Object Storage Aliases tab**: Access "Object Storage Aliases" tab under "Storage Objects" within the IBM Cloud console
     2. **Create Object Storage Alias**: Click “Create Object storage alias” to configure your COS bucket access information into a Db2 Storage Alias
     3. **Enter alias details**: Object Storage Alias name, endpoint type, endpoint URL of your bucket, S3 key ID and access key.
-    4.  **Test connection to ensure details are valid**: Click “Test Connection” and click “Next”.
-    5.  **Select COS bucket**: From the dropdown menu, choose the the bucket and click “Next”.
-    6. **Review and Confirm**: Verify your settings and click “Connect” to finalize the configuration.
+    4. **Access control**: Select "BLUADMIN" group for the appropriate access control
+    5. **Test connection to ensure details are valid**: Click “Test Connection” and click “Next”.
+    6. **Select COS bucket**: From the dropdown menu, choose the the bucket and click “Next”.
+    7. **Review and Confirm**: Verify your settings and click “Connect” to finalize the configuration.
 2. **Navigate to the Audit Tab**: Access the Audit tab within the IBM Cloud console.
 3. **Initiate Audit**: Click "Enable Audit" to begin the process.
-4. **Select Audit Tables Option**: Decide whether to Keep or Remove your existing AUDIT tables. It's advisable to migrate your audit data to the COS bucket prior to enabling audit through the console.
+4. **Select Audit Tables Option, if applicable**: If your system is still auditing to AUDIT tables, you will be prompted to decide whether to Keep or Remove your existing AUDIT tables. It is advisable to migrate your audit data to the COS bucket prior to enabling audit through the console. To extract the data from the audit tables, use the [EXPORT](https://www.ibm.com/docs/en/db2/11.5?topic=commands-export) call. To upload the extracted data to your Cloud Object Storage bucket, we recommend to use the S3 API library. The data migration process may take a long time depending on the size of your data. Contact IBM Support if further guidance is needed.
 5. **Assign Storage Alias**: From the dropdown menu, choose the storage alias linked to your audit logs.
 6. **Review and Confirm**: Verify your settings and click "Enable" to finalize the configuration.
 
@@ -229,3 +230,30 @@ By following these best practices, you can create custom audit policies that eff
 Alternatively, you can use the SQL editor to define and activate policies. This method allows you to configure policies for any available database entity. For detailed guidance, refer to the [Audit policy guidelines](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.security.doc/doc/audit_policy_guidelines.html).
 
 By following these steps, you can effectively configure audit policies in your IBM Cloud database, ensuring comprehensive monitoring and compliance with your organization's requirements.
+
+
+### Reviewing Audit Logs And Records
+
+After you have activated at least one policy, Db2 will begin recording auditable events to the memory buffer. The archiving process will right the contents of the memopry buffer to the COS bucket as an audit file. The automatic upload of audit logs to the COS bucket occurs in two scenarios:
+   * When the internal audit buffer reaches maximum capacity.
+   * Approximately every 15 minutes, if there are records to be uploaded.
+
+You can validate that audit has been configured successfully, by performing an auditable event the waiting about 15-30 minutes for the archive mechanism to write the audit log with that audit event record to the COS bucket. You will see those audit logs reflected in the Audit tab within the IBM Cloud console. 
+
+### Review Audit Records
+
+You need access to a Db2 server with local disk access in order to view your audit records in audit logs. 
+
+Example for loading audit records into `CUSTOMERSCHEMA.VALIDATE`. See [Viewing archived audit records](https://www.ibm.com/docs/en/db2-warehouse?topic=activities-viewing-archived-audit-records) for the audit table definitions.
+```
+# Copy downloaded audit logs to /tmp/audit and extract the records into delimited files
+CALL SYSPROC.AUDIT_DELIM_EXTRACT(':','/tmp/audit/','/tmp/audit/','%2025%',NULL)
+
+# Load delimited files into CUSTOMERSCHEMA.VALIDATE
+CALL SYSPROC.ADMIN_CMD( 'LOAD FROM /tmp/audit/validate.del OF DEL MODIFIED BY CHARDEL: DELPRIORITYCHAR LOBSINFILE INSERT INTO CUSTOMERSCHEMA.VALIDATE' )
+
+# Use select to view records from audit tables
+SELECT * from CUSTOMERSCHEMA.VALIDATE 
+```
+
+See [Viewing archived audit records](https://www.ibm.com/docs/en/db2-warehouse?topic=activities-viewing-archived-audit-records) for guidance to perform the same task using the `db2audit` utiility.
