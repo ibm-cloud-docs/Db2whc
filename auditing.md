@@ -42,6 +42,7 @@ Activity Tracker with LogDNA integration is available for {{site.data.keyword.da
 | Sydney | au-syd |
 | Tokyo | jp-tok |
 | Toronto | ca-tor |
+| Vancouver | ca-tor |
 {: caption="Table 1. Activity Tracker regions" caption-side="top"}
 
 
