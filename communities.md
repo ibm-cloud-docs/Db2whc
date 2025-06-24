@@ -24,7 +24,9 @@ subcollection: Db2whc
 # Communities
 {: #communities}
 
-There are user-driven communities that you can join for information, tutorials, discussions, and help from professional Db2 users. And they're all free to join!
+There are user-driven communities that you can join for information, tutorials, discussions, and help from professional Db2 users.
+
+And they're all free to join!
 {: shortdesc}
 
 * [International Db2 Users Group (IDUG)](https://www.idug.org/){:external} IDUG® is an independent, not-for-profit, user-run organization whose mission is to support and strengthen the information services community. It provides the highest-quality education and services that are designed to promote the effective use of Db2.
