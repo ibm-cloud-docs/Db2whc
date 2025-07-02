@@ -63,3 +63,34 @@ If you'd like to use AWS PrivateLink with {{site.data.keyword.dashdbshort_notm}}
 - For the current generation of plans on AWS, connectivity to the web UI is available only over the public network, even if you have enabled PrivateLink. This restriction is temporary, and will be removed in an upcoming update.
 
 For more information about AWS PrivateLink, see [Interface VPC Endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html){: external}.
+
+## Using IP Allowlists with Your Formation
+
+An **allowlist** is a security mechanism that specifies which IP addresses are allowed to access a resource. Any IP address not on the allowlist is blocked. This approach helps protect your environment by filtering traffic based on trusted sources.
+
+You can use IP allowlists to restrict access to your formation. Once an allowlist is configured, only IP addresses included in the allowlist or within a specified range can connect.
+
+### Key Points:
+- Allowlists can be applied **only to public endpoints**.
+- If the allowlist is **empty** (no IPs are listed), the restriction is **disabled** and connections from any IP address are allowed.
+- Allowlists will regulate traffic **only for DB connectivity** (port `50001`). There is **no impact** on console access over port `443`.
+
+## Setting an Allowlist Configuration
+
+To enable IP allowlisting:
+
+1. Open a support ticket with IBM Cloud.
+2. Provide the IP address to be allowlisted.
+3. Include a short description for the allowlist entry.
+
+### IP Address Format
+
+You can specify an IP in either of the following formats:
+
+- A single IP address (e.g., `170.225.223.5`)
+- A CIDR block (e.g., `192.168.1.0/24` or `170.225.227.6/32`)
+
+### Description
+
+Each allowlist entry requires a description. This should be meaningful for identification—such as a customer name, project code, or employee ID.
+
