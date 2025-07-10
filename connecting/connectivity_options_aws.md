@@ -39,9 +39,20 @@ If you'd like to use AWS PrivateLink with {{site.data.keyword.dashdbshort_notm}}
 
 1. Create an AWS principal to access {{site.data.keyword.dashdbshort_notm}}. The AWS principal can be AWS accounts, IAM users, or IAM roles.
 
-2. Open a support ticket with {{site.data.keyword.cloud_notm}} to enable AWS PrivateLink, and provide the Amazon Resource Name (ARN) of the AWS principal that was created in the previous step. The principal is granted permission to access your {{site.data.keyword.dashdbshort_notm}} instance.
-    
-3. After the principal is granted permission, create an interface endpoint on your VPC to connect to the {{site.data.keyword.dashdbshort_notm}} service. See [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html){: external}. Ensure that TCP traffic is allowed through ports 50001, 443, and 8443 on the VPC, and set rules to allow traffic from the CIDR range associated with the VPC.
+2. Open the console, navigate to **Settings → Access restriction**, then:
+   - Enable **Private Endpoints**.
+   - Add the principal created in step 1 to the allowlist
+  
+3. In the **Db2 Warehouse on Cloud console**, go to the **Connections** tab to get the PrivateLink service name.  
+   The service name will follow this format:  
+   `com.amazonaws.vpce.<region>.<service-name>`
+
+4. From your **AWS account**:
+   - Open the **AWS Console** and go to the **VPC** tab.
+   - Click on **Endpoints**, then select **Create endpoint**.
+   - Choose **PrivateLink Ready partner services**.
+   - Enter the **service name** retrieved in step 3.
+   - Verify the service, then proceed to **create the endpoint**.
 
 
 ## Connecting to the private web console of {{site.data.keyword.dashdbshort_notm}}
@@ -58,7 +69,7 @@ If you'd like to use AWS PrivateLink with {{site.data.keyword.dashdbshort_notm}}
   Extra charges might apply when you transfer data by using the public endpoint.
   {: note}
 
-- You must create the Endpoint Service for accessing {{site.data.keyword.dashdbshort_notm}} in the same AWS region where the {{site.data.keyword.dashdbshort_notm}} instance is deployed. To access your instance from other AWS regions, you can use VPC Peering. See [Example: Services Using AWS PrivateLink and VPC Peering](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peer-region-example.html){: external}.
+- You must create the Endpoint Service for accessing {{site.data.keyword.dashdbshort_notm}} in the same AWS region where the {{site.data.keyword.dashdbshort_notm}} instance is deployed. To access your instance from other AWS regions, you can use VPC Peering. See [Example: Services Using AWS PrivateLink and VPC Peering](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peer-region-example.html){: external} or setup a AWS Transit Gateway.
 
 - For the current generation of plans on AWS, connectivity to the web UI is available only over the public network, even if you have enabled PrivateLink. This restriction is temporary, and will be removed in an upcoming update.
 

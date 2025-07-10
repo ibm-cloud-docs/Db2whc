@@ -65,6 +65,8 @@ Configure your local environment to connect to your {{site.data.keyword.dashdbsh
    - [Installing on Windows](/docs/Db2whc/connecting?topic=Db2whc-dr_pkg#install_dr_pkg_windows)
 3. [Configure the driver files](/docs/Db2whc/connecting?topic=Db2whc-dr_pkg#cfg_loc_env) for your {{site.data.keyword.dashdbshort_notm}} database.
 
+<!---
+
 ## Use Db2 Warehouse on Cloud as a data source for your {{site.data.keyword.Bluemix_notm}} apps or services
 {: #data_src}
 
@@ -114,4 +116,4 @@ When your apps use the {{site.data.keyword.Bluemix_notm}} platform, you can take
     $conn        = db2_connect( $conn_string, "", "" );
     ?>
     ```
-
+--->

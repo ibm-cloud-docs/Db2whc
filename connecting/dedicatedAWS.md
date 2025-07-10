@@ -28,7 +28,7 @@ subcollection: Db2whc
 {{site.data.keyword.dashdblong}} can now be deployed on an Amazon Web Services instance in a dedicated virtual network managed by IBM.  
 {: shortdesc}
 
-One quantity of this part supports up to ten {{site.data.keyword.dashdbshort_notm}} service instances. When a dedicated virtual network is in place, only specific AWS VPC's can access the database.
+One quantity of this part supports up to ten {{site.data.keyword.dashdbshort_notm}} service instances. With a Dedicated Private Cloud, the virtual network is exclusively allocated to your IBM Db2 Warehouse SaaS instances—no other customer instances are provisioned within it.
 
 If you'd like to request this option, open a support case with IBM Cloud support to make the request.  You will need to provide your IBM Cloud account ID in the ticket. 
 

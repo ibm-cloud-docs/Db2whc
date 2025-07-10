@@ -77,7 +77,10 @@ You can also obtain your host name and credentials in the following way:
 ## Connecting to a private endpoint: IBM Cloud service endpoint
 {: #priv_endpt}
 
-{{site.data.keyword.dashdbshort_notm}} supports private connectivity through an [{{site.data.keyword.cloud_notm}} service endpoint](/docs/account?topic=account-service-endpoints-overview). {{site.data.keyword.cloud_notm}} service endpoints securely route network traffic between different {{site.data.keyword.cloud_notm}} services through the {{site.data.keyword.cloud_notm}} private backplane network. When you configure your {{site.data.keyword.dashdbshort_notm}} instance with {{site.data.keyword.cloud_notm}} service endpoint connectivity, traffic between your cloud data warehouse and applications deployed on your {{site.data.keyword.cloud_notm}} account will not traverse any public networks.
+{{site.data.keyword.dashdbshort_notm}} supports private connectivity through an [{{site.data.keyword.cloud_notm}} service endpoint](/docs/account?topic=account-service-endpoints-overview) for current generation environments in IBM Cloud Classic. {{site.data.keyword.cloud_notm}} service endpoints securely route network traffic between different {{site.data.keyword.cloud_notm}} services through the {{site.data.keyword.cloud_notm}} private backplane network. When you configure your {{site.data.keyword.dashdbshort_notm}} instance with {{site.data.keyword.cloud_notm}} service endpoint connectivity, traffic between your cloud data warehouse and applications deployed on your {{site.data.keyword.cloud_notm}} account will not traverse any public networks.
+
+IBM Cloud Service Endpoint in only supported on Previous Generation deployments.
+{: note}
 
 For application connections, do not use IP addresses to connect to the {{site.data.keyword.dashdbshort_notm}} instance, as the IP addresses resolved from the hostname may change. 
 {: important}
@@ -148,11 +151,14 @@ After receipt of your request, {{site.data.keyword.cloud_notm}} technicians will
 
 IBM Cloud private link gives you the ability to securely and privately connect to a {{site.data.keyword.dashdblong}} instance from your own IBM Cloud VPCs. With the IBM Cloud Private Link, traffic between {{site.data.keyword.dashdblong}} and your IBM Cloud VPCs, it does not traverse the public internet.
 
+IBM Cloud private link is only supported on Current Generation deployments.
+{: note}
+
 Complete the following steps to connect {{site.data.keyword.dashdblong}} with  private link:
 
 1. Create an access to {{site.data.keyword.dashdbshort_notm}} console. The {{site.data.keyword.dashdbshort_notm}} console can be accessed with IAM users, or IAM roles.
 
-2. In the console, navigate to the **Settings** --> **Access restriction** panel then enable private endpoints. You can optionally also disable public endpoints.
+2. In the console, navigate to the **Settings** --> **Access restriction** panel then enable private endpoints. You can optionally also disable public endpoints later after you enable private connection and set it up.
 
 3. Navigate to the **Connections** tab in {{site.data.keyword.dashdblong}} console to get private endpoint service name and its details. Connect to DB using the connection details present in the connection’s private tab after creating ‘Virtual Private Endpoint Gateway’.
 

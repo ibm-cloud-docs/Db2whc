@@ -38,7 +38,7 @@ Before attempting to connect to your {{site.data.keyword.dashdbshort_notm}} data
 
 - Verify that a supported driver is installed
 
-   - If your application or tool already contains the Db2 v11.1 IBM Data Server Driver Package, then your application or tool is able to connect to your {{site.data.keyword.dashdbshort_notm}} database by using that driver.
+   - If your application or tool already contains an appropiate compatible version of IBM Data Server Driver Package, then your application or tool is able to connect to your {{site.data.keyword.dashdbshort_notm}} database by using that driver.
    - Otherwise, install the Db2 driver package, which you can download from the {{site.data.keyword.dashdbshort_notm}} web console.
 
 - Configure your environment
@@ -57,6 +57,9 @@ Before attempting to connect to your {{site.data.keyword.dashdbshort_notm}} data
 - Confirm that ports are available
 
    If your network is behind a firewall, confirm that communications are permitted on port number `50000` for standard protocols or port number `50001` for SSL connections.
+
+   Port number `50000` is permitted only when a risk document is signed.
+  {: note}
 
 <!-- Before you can connect to your {{site.data.keyword.dashdbshort_notm}} database, verify that you completed downloading and installing the necessary components on the prerequisites checklist: 
 
