@@ -47,7 +47,7 @@ If an unexpected node failure does occur, your Flex Performance MPP cluster is b
 ### Compute HA
 {: #compute_ha}
 
-Any node failure is immediately detected by the cloud provider's container service. The containers and pods that were running in the failed node are scheduled to a new node from a pool of nodes. The system is back to 100% normal operation after a short downtime.
+Any node failure is immediately detected by the cloud provider's container service. The containers and pods that were running in the failed node are scheduled to a new node automatically by the HA process. The system is back to 100% normal operation after a short downtime.
 
 ### Storage HA
 {: #storage_ha}
