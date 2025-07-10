@@ -66,7 +66,7 @@ UDXes written in C++ will be upgraded successfully. However, new UDXes *cannot b
 
 ### Landing Zone Files
 
-Files stored in your Gen 2 landing zone will *not be persisted* during the upgrade. Be sure to download and back up any files prior to upgrade, as IBM will not be responsible for lost contents in the landing zone.
+Files stored in your Gen 2 landing zone will *not be persisted* during the upgrade. Be sure to download and back up any files prior to upgrade, as IBM will not be responsible for lost contents in the landing zone. You can use the Console APIs to download these files.
 
 ### Auditing
 
