@@ -105,7 +105,7 @@ toc:
       topics:
       - link:
               label: Database management API
-              href: https://cloud.ibm.com/apidocs/db2-warehouse-on-cloud
+              href: https://cloud.ibm.com/apidocs/db2-warehouse-on-cloud/db2-warehouse-on-cloud-v5
       - link:
               label: SQL reference
               href: https://www.ibm.com/docs/en/db2woc?topic=reference-sql

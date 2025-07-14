@@ -46,7 +46,9 @@ Before attempting to connect to your {{site.data.keyword.dashdbshort_notm}} data
   - Add entries to the driver configuration file, `db2dsdriver.cfg`, for your database.
   - Secure Sockets Layer (SSL)
 
-    Connection details, such as which port to use and the connection string, depend on whether you use SSL connections. Using SSL is strongly recommended because of the stronger security it provides.
+    Connection details, such as which port to use and the connection string, depend on whether you use SSL connections. 
+    
+    Using SSL is strongly recommended because of the stronger security it provides.
 
     <!-- You can choose to connect with or without SSL. Connection details, such as which port to use and the connection string, depend on whether you use SSL connections. -->
 
