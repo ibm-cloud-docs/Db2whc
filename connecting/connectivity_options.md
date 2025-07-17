@@ -184,7 +184,7 @@ Once the [VPE-endpoint-gateway](https://cloud.ibm.com/docs/vpc?topic=vpc-orderin
 
 - You must create the Virtual private endpoint gateway in the same region where the {{site.data.keyword.dashdbshort_notm}} instance is deployed. To access your instance from other regions, you may have to setup VPN network.
 
-## Using IP Allowlists with Your Formation
+## Using IP Allowlists with your Instance
 
 An **allowlist** is a security mechanism that specifies which IP addresses are allowed to access a resource. Any IP address not on the allowlist is blocked. This approach helps protect your environment by filtering traffic based on trusted sources.
 
@@ -193,7 +193,7 @@ You can use IP allowlists to restrict access to your formation. Once an allowlis
 ### Key Points:
 - Allowlists can be applied **only to public endpoints**.
 - If the allowlist is **empty** (no IPs are listed), the restriction is **disabled** and connections from any IP address are allowed.
-- Allowlists will regulate traffic **only for DB connectivity** (port `50001`). There is **no impact** on console access over port `443`.
+- Allowlists will regulate traffic **only for DB connectivity** (port `50001`). There is **no impact** on web console access or rest API over port `443`.
 
 ## Setting an Allowlist Configuration
 

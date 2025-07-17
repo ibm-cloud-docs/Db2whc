@@ -75,7 +75,7 @@ If you'd like to use AWS PrivateLink with {{site.data.keyword.dashdbshort_notm}}
 
 For more information about AWS PrivateLink, see [Interface VPC Endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html){: external}.
 
-## Using IP Allowlists with Your Formation
+## Using IP Allowlists with your Instance
 
 An **allowlist** is a security mechanism that specifies which IP addresses are allowed to access a resource. Any IP address not on the allowlist is blocked. This approach helps protect your environment by filtering traffic based on trusted sources.
 
@@ -84,7 +84,7 @@ You can use IP allowlists to restrict access to your formation. Once an allowlis
 ### Key Points:
 - Allowlists can be applied **only to public endpoints**.
 - If the allowlist is **empty** (no IPs are listed), the restriction is **disabled** and connections from any IP address are allowed.
-- Allowlists will regulate traffic **only for DB connectivity** (port `50001`). There is **no impact** on console access over port `443`.
+- Allowlists will regulate traffic **only for DB connectivity** (port `50001`). There is **no impact** on web console access or rest API over port `443`.
 
 ## Setting an Allowlist Configuration
 
