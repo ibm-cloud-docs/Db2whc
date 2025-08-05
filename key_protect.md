@@ -24,7 +24,7 @@ subcollection: Db2whc
 # Key Protect integration
 {: #key-protect-v2}
 
-The data that you store in {{site.data.keyword.dashdblong}} is encrypted by default using randomly generated keys. If you need to control the encryption keys, you can use [{{site.data.keyword.keymanagementservicelong_notm}}](/docs/key-protect?topic=key-protect-integrate-services) to create, add, and manage encryption keys. Then, you can associate those keys with your {{site.data.keyword.dashdblong}}  deployment to encrypt your Db2 databases.
+The data that you store in {{site.data.keyword.dashdblong}} is encrypted by default using randomly generated keys. If you need to control the encryption keys, you can use [{{site.data.keyword.keymanagementservicelong_notm}}](/docs/key-protect?topic=key-protect-integrate-services) to create, add, and manage encryption keys. Then, you can associate those keys with your Db2 Warehouse on Cloud deployment to encrypt your Db2 databases.
 
 To get started, you need [{{site.data.keyword.keymanagementserviceshort}}](https://cloud.ibm.com/catalog/services/key-protect){: external} provisioned on your {{site.data.keyword.cloud_notm}} account.
 

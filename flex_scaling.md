@@ -49,7 +49,7 @@ Approximately 45 minutes of downtime is required for a compute scale operation. 
 
 With the current generation of plans hosted on AWS (plans deployed in or after July 2023 that support native object storage), you can scale storage up or down. The ability to scale storage down allows you to reduce your costs as you move data from more expensive block storage to less expensive cloud storage. With all other plans, you can only scale storage up.
 
-You can also enable auto-scaling for your storage. When you enable autoscaling, the storage on your {{site.data.keyword.dashdbshort_notm}} instance will automatically be scaled up if your storage use exceeds the threshold you specify. The following screenshot shows the auto-scaling panel in the console for a {{site.data.keyword.dashdbshort_notm}} Flex instance hosted on IBM Cloud.
+You can also enable auto-scaling for your storage. When you enable autoscaling, the storage on your Db2 Warehouse on Cloud instance will automatically be scaled up if your storage use exceeds the threshold you specify. The following screenshot shows the auto-scaling panel in the console for a Db2 Warehouse on Cloud Flex instance hosted on IBM Cloud.
 
 ![Storage autoscaling tab](images/scaling2.png){: caption="Figure 2. A screenshot of the autoscaling tab" caption-side="bottom"}
 

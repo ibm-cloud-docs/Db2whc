@@ -28,7 +28,7 @@ subcollection: Db2whc
 ## What do I need to do with my applications before upgrade?
 {: #q_appl}
 
-### For users of the Db2 Warehouse as a Service REST API
+### For users of the Db2 Warehouse on Cloud REST API
 
 Ensure your application is using v4 of the {{site.data.keyword.dashdbshort_notm}} on Cloud REST API. Additionally, all API requests must include the `x-deployment-id` header, or an error will be returned when using the next-generation warehouse. More information about the REST API can be found [here]( https://cloud.ibm.com/docs/Db2whc?topic=Db2whc-con_rest_api).
 
@@ -99,7 +99,7 @@ To enable private connectivity:
    * First, enable private connectivity through the console.
    * Then, create a *Virtual Private Endpoint Gateway* on your VPC. The private endpoint and port will be provided in the Connections section of the console.
 
-Private connectivity is a *regional service*, meaning that the Virtual Private Endpoint Gateway must be created in the same region as your {{site.data.keyword.dashdbshort_notm}} instance.
+Private connectivity is a *regional service*, meaning that the Virtual Private Endpoint Gateway must be created in the same region as your Db2 Warehouse on Cloud instance.
 {: note}
 
 *VPN Connectivity:* If you currently connect via VPN, follow the instructions in the [VPN Connectivity guide](https://cloud.ibm.com/docs/Db2whc?topic=Db2whc-connect_options#vpn) to ensure proper setup after the upgrade.
