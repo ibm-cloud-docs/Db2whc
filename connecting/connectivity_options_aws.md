@@ -43,7 +43,7 @@ If you'd like to use AWS PrivateLink with {{site.data.keyword.dashdbshort_notm}}
    - Enable **Private Endpoints**.
    - Add the principal created in step 1 to the allowlist
   
-3. In the **Db2 Warehouse as a Service console**, go to the **Connections** tab to get the PrivateLink service name.  
+3. In the **Db2 Warehouse on Cloud console**, go to the **Connections** tab to get the PrivateLink service name.  
    The service name will follow this format:  
    `com.amazonaws.vpce.<region>.<service-name>`
 
