@@ -233,7 +233,7 @@ If you intend to connect by using the SSL protocol, download the `DigiCertGlobal
                 
      `<node_name>` is your name for the node.
 
-     `<Db2_Warehouse_IP_address>` is the IP address of the {{site.data.keyword.dashdblong}} server.
+     `<Db2_Warehouse_IP_address>` is the IP address of the Db2 Warehouse on Cloud server.
 
      `<port_number>` is the port that is used to connect to Db2 Warehouse by using an SSL connection. If you are using the default port, specify `50001`.
             
@@ -289,7 +289,7 @@ If you intend to connect by using the SSL protocol, download the `DigiCertGlobal
 
        `db2cli validate -dsn <alias> -connect -user <user_id> -passwd <password>`
 
-       where `<alias>` is a DSN alias that you created by using the **db2cli writecfg** command, `<user_id>` is your {{site.data.keyword.dashdbshort_notm}} user ID, and `<password>` is your {{site.data.keyword.dashdblong}} password.
+       where `<alias>` is a DSN alias that you created by using the **db2cli writecfg** command, `<user_id>` is your {{site.data.keyword.dashdbshort_notm}} user ID, and `<password>` is your Db2 Warehouse on Cloud password.
     
 2. Launch the InfoSphere Data Replication configuration tool and perform the following steps. The values that are shown in the screen captures are examples.
         
