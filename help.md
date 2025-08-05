@@ -30,7 +30,7 @@ subcollection: Db2whc
 Here you'll find answers to common questions about using {{site.data.keyword.dashdblong}}.
 {: shortdesc}
 
-## Db2 Warehouse on Cloud service is not available
+## Db2 Warehouse SaaS service is not available
 {: #outages}
 
 The {{site.data.keyword.dashdbshort_notm}} service in {{site.data.keyword.Bluemix_notm}} might not be available.
@@ -48,7 +48,7 @@ You can determine the status of the {{site.data.keyword.dashdbshort_notm}} servi
 <!-- * Status monitoring:
   * [All regions](https://console.eu-gb.bluemix.net/status?tags=platform,runtimes,services,ibm:yp:eu-gb,ibm:yp:eu-de,ibm:yp:us-south,ibm:yp:au-syd){:external} -->
 
-## Getting help and support for Db2 Warehouse on Cloud
+## Getting help and support for Db2 Warehouse as a Service
 {: #gettinghelp}
 
 If you have problems or questions when using {{site.data.keyword.dashdbshort_notm}}, you can get help by searching for information or by asking questions through a forum. You can also open a support ticket.
