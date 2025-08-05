@@ -27,7 +27,7 @@ subcollection: Db2whc
 
 {{site.data.keyword.at_full_notm}} allows you to forward the Db2 diagnostic log (db2diag.log) from your {{site.data.keyword.cloud_notm}} instances to your own Log Analysis with LogDNA service instance. Choosing to enable log forwarding allows you to use Log Analysis to retain these logs for the time period required by your organization, or to search or analyze the logs.
 
-As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with the Db2 Warehouse on Cloud service in {{site.data.keyword.cloud_notm}}. {: shortdesc}
+As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with the {{site.data.keyword.dashdblong}}  service in {{site.data.keyword.cloud_notm}}. {: shortdesc}
 
 {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the getting started tutorial for {{site.data.keyword.at_full_notm}}.
 

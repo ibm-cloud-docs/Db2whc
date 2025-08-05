@@ -50,7 +50,7 @@ With the current generation of plans, you are charged for all backups. The backu
 The recovery point objective (RPO) for snapshot backups is 24 hours. The recovery time objective (RTO) when restoring from a snapshot backup for the current generation is dependent upon the amount of data stored in object storage. The RTO is approximately 1.5 TB/hour.
 
 ### Previous Generation
-By default, daily snapshots are retained up to the last seven days. Snapshot backups are encrypted and stored in block storage that is local to the Db2 Warehouse on Cloud system. Snapshot backups are free of charge.
+By default, daily snapshots are retained up to the last seven days. Snapshot backups are encrypted and stored in block storage that is local to the {{site.data.keyword.dashdbshort_notm}} system. Snapshot backups are free of charge.
 
 The recovery point objective (RPO) for snapshot backups is 24 hours. The recovery time objective (RTO) when restoring from a snapshot backup is approximately one hour.
 

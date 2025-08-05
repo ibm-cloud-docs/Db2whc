@@ -63,7 +63,7 @@ Federation gives you the ability to increase the capacity of an on-premises data
 
 The following steps are an example of how you go about federating your disparate data sources to appear as if the data is retrieved from a single source. The following example illustrates the federation of two {{site.data.keyword.dashdbshort_notm}} databases:
 
-### On the Db2 Warehouse on Cloud target machine
+### On the Db2 Warehouse as a Service target machine
 {: #targ}
 
 Host name: targetdotcom
@@ -72,7 +72,7 @@ Host name: targetdotcom
 
 2. From the {{site.data.keyword.dashdbshort_notm}} console, load the `testdata` table with data as user `admin2` with password `YYYY`.
 
-### On a Db2 Warehouse on Cloud machine being used as a federation source
+### On a Db2 Warehouse as a Service machine being used as a federation source
 {: #fed_src}
 
 From the {{site.data.keyword.dashdbshort_notm}} console:
