@@ -37,7 +37,7 @@ You can connect third-party command-line interfaces, applications, and tools to 
 You can connect Informatica to {{site.data.keyword.dashdbshort_notm}} to help you manage your data.
 {: shortdesc}
 
-Watch this video to see how to integrate {{site.data.keyword.dashdbshort_notm}} with Informatica Cloud.
+<!--Watch this video to see how to integrate {{site.data.keyword.dashdbshort_notm}} with Informatica Cloud.-->
 
 <!--[DB2 Connections - Lightening Fast How-To with Informatica Cloud](https://www.youtube.com/embed/TUiS_HstLnU?rel=0){: video output="iframe" data-script="none" id="youtubeplayer1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}-->
 
@@ -291,7 +291,7 @@ Before attempting to connect to your {{site.data.keyword.dashdbshort_notm}} data
 
    The console displays a list of all of the tables and views in the current schema.
 
-Watch this video to see how to create a connection in RStudio and add connected data to a project:
+<!--Watch this video to see how to create a connection in RStudio and add connected data to a project: -->
 
 <!--![Connect to external data sources in RStudio](https://www.youtube.com/embed/vWkOIDQmzT0?rel=0){: video output="iframe" data-script="none" id="youtubeplayer2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen} -->
 

@@ -36,7 +36,7 @@ A subscription allows you to buy credits that you can use as quickly or slowly a
 
 1) Purchase an IBM Cloud Pak for Data as-a-Service subscription.
 
-2) Apply this subscription to the IBM Cloud account that currently contains your Db2 Warehouse on Cloud instance.
+2) Apply this subscription to the IBM Cloud account that currently contains your {{site.data.keyword.dashdbshort_notm}} instance.
 
 3) Create a case with support (https://cloud.ibm.com/unifiedsupport/supportcenter) and request to have your instance converted to use this subscription.
 

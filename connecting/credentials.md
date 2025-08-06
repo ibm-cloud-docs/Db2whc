@@ -43,7 +43,7 @@ There are important database details that are needed for connecting applications
 
 There are three types of credentials:
 
-- *IBMid* - If you use {{site.data.keyword.Bluemix_notm}}, this is the ID you would use to log in to {{site.data.keyword.Bluemix_notm}}. This is not what you use to connect applications or tools to your Db2 Warehouse on Cloud database.
+- *IBMid* - If you use {{site.data.keyword.Bluemix_notm}}, this is the ID you would use to log in to {{site.data.keyword.Bluemix_notm}}. This is not what you use to connect applications or tools to your {{site.data.keyword.dashdbshort_notm}} database.
 - *Db2 database credentials* - Your service comes provisioned with a database user ID and password that can be used to connect applications and tools to your database.
 - *Administrator-created users* - Some {{site.data.keyword.dashdbshort_notm}} plans allow administrative users to create new users. These administrator-created user IDs and passwords can be used to log directly into the web console URL and to connect to the Db2 database from applications or tools.
 
