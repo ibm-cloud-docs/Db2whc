@@ -617,7 +617,7 @@ How you add data and from where you can add data differs between legacy and IBM 
 
 Watch this video to see how to create a connection and add connected data to a project.
 
-![Create a connection and add connected data to a project](https://www.youtube.com/embed/YV-5zSczhH4?rel=0){: video output="iframe" data-script="none" id="youtubeplayer2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+<!--[Create a connection and add connected data to a project](https://www.youtube.com/embed/YV-5zSczhH4?rel=0){: video output="iframe" data-script="none" id="youtubeplayer2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}-->
 
 <!-- <iframe class="embed-responsive-item" id="youtubeplayer2" title="Create a connection and add connected data to a project" type="text/html" width="640" height="390" src="//www.youtube.com/embed/YV-5zSczhH4?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe> -->
 
