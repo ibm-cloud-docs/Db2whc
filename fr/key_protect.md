@@ -174,7 +174,7 @@ If you face any issues with backup and restore, contact {{site.data.keyword.Blue
 
 If you want to rotate the key in IBM Key Protect, you can do it either from the {{site.data.keyword.Bluemix_notm}} console or by using the [IBM Key Protect API: Invoke an action on a key](https://cloud.ibm.com/apidocs/key-protect#invoke-an-action-on-a-key){:external}.
 
-## Removing the authorization of Db2 Warehouse on Cloud service to access Key Protect
+## Removing the authorization of Db2 Warehouse SaaS service to access Key Protect
 {: #kp_rm_auth}
 
 You can remove the authorization of a {{site.data.keyword.dashdbshort_notm}} service to access the Key Protect service instance by using the {{site.data.keyword.Bluemix_notm}} console. In such a case, your database instance can no longer be started after it is stopped because any attempt to access the keystore will fail. Certain operations within the database require access to the keystore and they will begin to fail as well. In addition, any database backups cannot be restored. The access to the database and its backups can be regained after the service-to-service authorization is granted again.

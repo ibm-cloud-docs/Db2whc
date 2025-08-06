@@ -26,7 +26,7 @@ subcollection: Db2whc
 
 Disaster recovery (DR) backups for {{site.data.keyword.dashdblong}} are enabled by default.
 
-If a disaster event occurs at the data center where your Db2 Warehouse on Cloud instance is deployed, IBM service operators will work with you to stand up a new data warehouse in a different data center, by using the most recent disaster recovery backup.
+If a disaster event occurs at the data center where your {{site.data.keyword.dashdbshort_notm}} instance is deployed, IBM service operators will work with you to stand up a new data warehouse in a different data center, by using the most recent disaster recovery backup.
 
 For more information about DR and replication on Db2 Warehouse SaaS, see [Replication](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.idrca.doc/overview/ovu-db2woc.html).
 {: shortdesc}
