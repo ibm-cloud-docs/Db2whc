@@ -586,7 +586,7 @@ You can run your IBM Cognos® reports against data in the cloud rather than the 
 
 Watch this video to see how to create a connection.
 
-![Creating a connection from Cognos Analytics](https://www.youtube.com/embed/TRUEPVHGi0s?rel=0){: video output="iframe" data-script="none" id="youtubeplayer1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+<!---![Creating a connection from Cognos Analytics](https://www.youtube.com/embed/TRUEPVHGi0s?rel=0){: video output="iframe" data-script="none" id="youtubeplayer1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}-->
 
 <!-- <iframe class="embed-responsive-item" id="youtubeplayer1" title="Creating a connection from Cognos Analytics" type="text/html" width="640" height="390" src="//www.youtube.com/embed/TRUEPVHGi0s?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe> -->
 
