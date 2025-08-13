@@ -103,7 +103,7 @@ While the upgrade process is robust, in the event an error does happen, you will
 
 ### IBM Driven Upgrade
 
-{: #ibm_upgrade}
+{: #q_after_ibm_driven_upgrade}
 
 The implicit upgrade upgrades your system to the new generation of {{site.data.keyword.dashdbshort_notm}} and VPC Gen2 infrastructure, and also updates the database to the latest version automatically. This ensures that you immediately benefit from all new features introduced in the latest database version and no separate update action is required. Both v4 and v5 of the {{site.data.keyword.dashdbshort_notm}} REST API will remain fully functional after the upgrade.
 
