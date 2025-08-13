@@ -80,17 +80,17 @@ Your Key Protect Integration configuration will be retained.
 
 {: #q_test_period}
 
-### IBM Driven Upgrade
-
-{: #ibm_driven_upgrade}
-
-For IBM-driven upgrades performed during the scheduled maintenance window, the testing period does not apply. The system will transition directly into billing upon completion of the upgrade.
-
 ### Customer Initiated Upgrade via Self-Service Upgrade Tool
 
 {: #customer_initiated_upgrade}
 
 After successfully creating the new system (Step 1), you have a 14-day period to test and complete the final upgrade process (Step 3). The trial end date will be displayed, and once the 14-day period is over, billing for the new instance will automatically begin. If the prior system has not been deleted by this point, it will also continue to incur charges.
+
+### IBM Driven Upgrade
+
+{: #ibm_driven_upgrade}
+
+For IBM-driven upgrades performed during the scheduled maintenance window, the testing period does not apply.
 
 ## What should I do if I encounter an error during any of the steps?
 {: #q_error}
