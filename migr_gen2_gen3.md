@@ -73,7 +73,7 @@ This step is crucial as it will unlock the new Cloud Object Storage native capab
 ## Post-Upgrade Steps for Both Upgrade Paths
 {: #post_upgrade_steps}
 
-### Step 6: Move Data from Block to Cloud Object Storage
+### Move Data from Block to Cloud Object Storage
 {: #migr_move}
 
 To start saving on storage costs, you will need to move eligble data from block storage to cloud object storage and then shrink the freed block storage. The limitations on what type of tables are eligible can be found within [this documentation](https://www.ibm.com/docs/en/db2w-as-a-service?topic=support-restrictions-limitations).
@@ -81,7 +81,7 @@ There are two ways to move tables:
 - Via the service console, utilizing the Table Explorer, where a single table at a time can be moved to the pre-created cloud object storage tablespace.
 - Via a command line tool, which can automate bulk table moves and more. Details on how to install and use the tool can be found [here](https://github.com/IBM/db2whmigratetocos).
 
-### Step 7: Shrink Block Storage
+### Shrink Block Storage
 {: #migr_shrink}
 
 After tables have been moved to cloud object storage, the block storage will need to be shrunk. The shrink operation can be performed as many times as required, however keep in mind that it is an offline operation and requires downtime. The shrink operation can be initiated via the service console as shown [here](https://cloud.ibm.com/docs/Db2whc?topic=Db2whc-scaling).

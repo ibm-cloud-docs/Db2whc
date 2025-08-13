@@ -99,11 +99,11 @@ While the upgrade process is robust, in the event an error does happen, you will
 
 ## What should I expect after the upgrade?
 
-{: #q_after_upgrade}
+{: #q_after_ibm_driven_upgrade}
 
 ### IBM Driven Upgrade
 
-{: #q_after_ibm_driven_upgrade}
+{: #q_after_ibm_upgrade}
 
 The implicit upgrade upgrades your system to the new generation of {{site.data.keyword.dashdbshort_notm}} and VPC Gen2 infrastructure, and also updates the database to the latest version automatically. This ensures that you immediately benefit from all new features introduced in the latest database version and no separate update action is required. Both v4 and v5 of the {{site.data.keyword.dashdbshort_notm}} REST API will remain fully functional after the upgrade.
 
@@ -113,9 +113,12 @@ After the upgrade, the Web Console URL will be updated. Please note the followin
   `https://<hostname>/console`
 
 - **After Upgrade**  
-  `https://<hostname>/<url-encoded-crn>/console/index.html`
+ Follow these steps to open the {{site.data.keyword.dashdbshort_notm}}  web console:
+  1. Navigate to the [IBM Cloud Resources list](https://cloud.ibm.com/resources).
+  2. Under the **Databases** section, select your Db2 Warehouse database.
+  3. Click the **Go to UI** button to launch the IBM Db2 Warehouse SaaS web console.
 
-Please make sure to update any bookmarks, scripts, or integrations that rely on the old url.
+Please make sure to update any bookmarks, scripts, or integrations that rely on the old URL.
 {: note}
 
 ### Customer Initiated Upgrade via Self-Service Upgrade Tool
